@@ -2,6 +2,13 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
+import HutLookout from "@/assets/HutLookout.jpg";
+import AliciaRidge from "@/assets/AliciaRidge.jpg"
+import Cottage from "@/assets/Cottage.jpg";
+import Kawa from "@/assets/Kawa.jpg";
+import Boodle from "@/assets/Boodle.jpg"
+import Location from "@/assets/Location.png"
+
 export default function LandingPage() {
     return (
         <div className="min-h-screen font-sans scroll-smooth">
@@ -19,7 +26,7 @@ export default function LandingPage() {
                 <div className="container mx-auto flex justify-between items-center">
                     <h1 className="text-xl font-bold">Alicia&apos;s Ridge Eco Park</h1>
                     <nav className="space-x-4">
-                        {/* ADD ROUTES IF ANY */}
+                        {/* ROUTING HERE IF ANY */}
                     </nav>
                 </div>
             </motion.header>
@@ -77,8 +84,9 @@ export default function LandingPage() {
                             transition={{ duration: 0.8 }}
                         >
                             <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 shadow-xl">
+                                {/* Hero Image Placeholder */}
                                 <img
-                                    src="/assets/eco-park-hero.jpg"
+                                    src={AliciaRidge}
                                     alt="Eco Park Hero"
                                     className="rounded-lg w-full h-auto object-cover"
                                 />
@@ -111,14 +119,24 @@ export default function LandingPage() {
                     >
                         Our Story
                     </motion.h3>
-                    <motion.p
-                        className="text-lg text-brown-dark leading-relaxed max-w-3xl mx-auto text-center"
+                    <motion.div
+                        className="max-w-4xl mx-auto space-y-6 text-center text-brown-dark"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        Nestled in the heart of Agusan del Norte, Alicia&apos;s Ridge Eco Park is a haven for nature lovers. Here, the serenity of lush landscapes meets the vibrant energy of Filipino culture, offering visitors an immersive experience that rejuvenates the soul.
-                    </motion.p>
+                        <p className="text-lg leading-relaxed">
+                            Nestled in the heart of Agusan del Norte, Alicia&apos;s Ridge Eco Park is a haven for nature lovers. Here, the serenity of lush forests meets the vibrant energy of Filipino culture, offering visitors an immersive experience that rejuvenates the soul. From early morning mist over the ridges to evening bonfires under a star-studded sky, every moment promises an unforgettable escape.
+                        </p>
+                        <img
+                            src={HutLookout}
+                            alt="Overview Placeholder"
+                            className="mx-auto rounded-lg shadow-lg"
+                        />
+                        <p className="text-lg leading-relaxed">
+                            Established by local families passionate about preserving the environment, the eco park combines modern comforts with a deep respect for tradition. Embrace sustainable practices, learn about Filipino customs, and create lasting memories—all while surrounded by panoramic views of the region&apos;s natural beauty.
+                        </p>
+                    </motion.div>
                 </section>
 
                 {/* Accommodations & Amenities */}
@@ -138,16 +156,19 @@ export default function LandingPage() {
                                     title: "Bamboo Cabin",
                                     description:
                                         "A luxurious cabin crafted from bamboo and nipa, exuding a warm Filipino ambiance. Accommodates up to 3 guests with full meal inclusions.",
+                                    imgUrl: Cottage,
                                 },
                                 {
                                     title: "Kubo",
                                     description:
                                         "A traditional Filipino hut designed for 2 guests, offering an intimate and authentic lodging experience.",
+                                    imgUrl: Cottage,
                                 },
                                 {
                                     title: "Glamping Kubo",
                                     description:
                                         "Experience elevated comfort in a traditional hut with modern glamping features—perfect for couples seeking adventure.",
+                                    imgUrl: Cottage,
                                 },
                             ].map((accommodation, index) => (
                                 <motion.div
@@ -165,7 +186,12 @@ export default function LandingPage() {
                                                 {accommodation.title}
                                             </h4>
                                         </CardHeader>
-                                        <CardContent className="px-6 pb-6">
+                                        <CardContent className="px-6 pb-6 space-y-4">
+                                            <img
+                                                src={accommodation.imgUrl}
+                                                alt={accommodation.title}
+                                                className="rounded-lg w-full h-auto object-cover shadow"
+                                            />
                                             <p className="text-brown-dark">
                                                 {accommodation.description}
                                             </p>
@@ -181,10 +207,15 @@ export default function LandingPage() {
                             transition={{ duration: 0.6, delay: 0.6 }}
                         >
                             <p>
-                                <strong>Kawa Hot Bath:</strong> Immerse yourself in a traditional hot bath experience with a modern twist, set against majestic mountain backdrops.
+                                <strong>Kawa Hot Bath:</strong> Immerse yourself in a traditional hot bath experience with a modern twist, set against majestic mountain backdrops. Relax under the open sky as you soak in a large cauldron of soothing warm water.
                             </p>
+                            <img
+                                src={Kawa}
+                                alt="Kawa Hot Bath"
+                                className="mx-auto rounded-lg shadow-lg"
+                            />
                             <p>
-                                <strong>Instagrammable Spots:</strong> Capture unforgettable moments at uniquely designed spots that showcase nature in all its glory.
+                                <strong>Instagrammable Spots:</strong> Capture unforgettable moments at uniquely designed viewpoints, nest-like structures, and scenic decks that showcase nature in all its glory.
                             </p>
                         </motion.div>
                     </div>
@@ -200,14 +231,24 @@ export default function LandingPage() {
                     >
                         Dining Experience
                     </motion.h3>
-                    <motion.p
-                        className="text-lg text-brown-dark leading-relaxed max-w-3xl mx-auto text-center"
+                    <motion.div
+                        className="max-w-3xl mx-auto text-center text-brown-dark space-y-6"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        Indulge in our signature boodle fight—a vibrant communal feast featuring an array of grilled pork barbecue, fresh seafood, and seasonal fruits that celebrates the spirit of togetherness.
-                    </motion.p>
+                        <p className="text-lg leading-relaxed">
+                            Indulge in our signature boodle fight—a vibrant communal feast featuring an array of grilled pork barbecue, fresh seafood, and seasonal fruits that celebrates the spirit of togetherness. Every meal is prepared with locally sourced ingredients, ensuring both flavor and freshness.
+                        </p>
+                        <img
+                            src={Boodle}
+                            alt="Dining Placeholder"
+                            className="mx-auto rounded-lg shadow-lg"
+                        />
+                        <p className="text-lg leading-relaxed">
+                            Whether you prefer a quiet dinner under the stars or a lively gathering with friends, our dining areas cater to every mood. Enjoy authentic Filipino cuisine that highlights the region&apos;s culinary heritage, complemented by refreshing tropical drinks.
+                        </p>
+                    </motion.div>
                 </section>
 
                 {/* Booking Information */}
@@ -221,22 +262,27 @@ export default function LandingPage() {
                         >
                             Reserve Your Stay
                         </motion.h3>
-                        <motion.ul
-                            className="list-disc pl-8 space-y-4 text-lg text-brown-dark max-w-lg mx-auto"
+                        <motion.div
+                            className="max-w-xl mx-auto text-brown-dark space-y-6"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            <li>
-                                <strong>Bamboo Cabin:</strong> ₱3,599 (3 pax, all meals included)
-                            </li>
-                            <li>
-                                <strong>Kubo:</strong> ₱1,199 (2 pax with free breakfast)
-                            </li>
-                            <li>
-                                <strong>Glamping Kubo:</strong> ₱1,099 (2 pax with free breakfast)
-                            </li>
-                        </motion.ul>
+                            <ul className="list-disc pl-8 space-y-4 text-lg">
+                                <li>
+                                    <strong>Bamboo Cabin:</strong> ₱3,599 (3 pax, all meals included)
+                                </li>
+                                <li>
+                                    <strong>Kubo:</strong> ₱1,199 (2 pax with free breakfast)
+                                </li>
+                                <li>
+                                    <strong>Glamping Kubo:</strong> ₱1,099 (2 pax with free breakfast)
+                                </li>
+                            </ul>
+                            <p className="text-lg leading-relaxed">
+                                To secure your preferred accommodation, we recommend booking at least two weeks in advance—especially during peak travel seasons. All bookings include complimentary access to our common areas, nature trails, and free Wi-Fi in select zones.
+                            </p>
+                        </motion.div>
                     </div>
                 </section>
 
@@ -276,6 +322,9 @@ export default function LandingPage() {
                                 Alicia&apos;s Ridge Eco Park
                             </a>
                         </p>
+                        <p className="leading-relaxed">
+                            Our friendly staff is ready to assist you with any inquiries about accommodations, dining, or special requests. Feel free to give us a call or send us a message on Facebook—we&apos;d love to hear from you!
+                        </p>
                     </motion.div>
                 </section>
 
@@ -291,19 +340,24 @@ export default function LandingPage() {
                             How to Find Us
                         </motion.h3>
                         <motion.div
-                            className="text-lg text-brown-dark max-w-3xl mx-auto space-y-4"
+                            className="text-lg text-brown-dark max-w-3xl mx-auto space-y-6"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
                             <p>
-                                <strong>From Butuan City Domestic Airport:</strong> Approximately 35 kilometers away, roughly a 28-minute drive.
+                                <strong>From Butuan City Domestic Airport:</strong> We are located approximately 35 kilometers away, which translates to roughly a 28-minute drive. Simply follow the national highway towards Buenavista until you see signposts for Alicia&apos;s Ridge Eco Park.
+                            </p>
+                            <img
+                                src={Location}
+                                alt="Map Directions"
+                                className="mx-auto rounded-lg shadow-lg"
+                            />
+                            <p>
+                                <strong>Public Transportation:</strong> Vans or buses bound for Nasipit in Agusan del Norte operate regularly. Inform the driver to drop you off at Alicia&apos;s Ridge Eco Park, and they&apos;ll stop at our entrance.
                             </p>
                             <p>
-                                <strong>Public Transportation:</strong> Vans or buses bound for Nasipit; simply inform the driver to drop you off at the park.
-                            </p>
-                            <p>
-                                <strong>By Car:</strong> Set your navigation to &quot;Alicia&apos;s Ridge Eco Park&quot; in Buenavista, Agusan del Norte. On-site parking available.
+                                <strong>By Car:</strong> If you prefer to drive, set your navigation app to &quot;Alicia&apos;s Ridge Eco Park&quot; in Buenavista, Agusan del Norte. We offer ample on-site parking for all visitors.
                             </p>
                         </motion.div>
                     </div>
